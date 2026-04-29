@@ -1,0 +1,9 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "ignorePatterns": [
+    "src/font-awesome-pro/**",
+    "public/font-awesome-pro/**",
+    "node_modules/**",
+    ".next/**"
+  ]
+}
