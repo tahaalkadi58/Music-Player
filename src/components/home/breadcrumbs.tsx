@@ -15,7 +15,7 @@ export default function Breadcrumb() {
         <li>
           <h2 className="mb-4 text-xl font-semibold">
             <Link href="/">
-              <i className="fad fa-home"></i>
+              <i className="fas fa-home"></i>
               <span className="px-2">Home</span>
             </Link>
           </h2>

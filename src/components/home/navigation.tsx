@@ -65,7 +65,7 @@ export default function Navigation() {
             <span
               className={`icon relative block text-center text-xl leading-[60px] transition-[color,transform] duration-500 ${id === active ? "-translate-y-[32.5px] text-white" : "text-app-main"}`.trim()}
             >
-              <i className={`fad fa-${icon}`} />
+              <i className={`fas fa-${icon}`} />
             </span>
             <span
               className={`text absolute text-center text-sm font-medium capitalize transition-[opacity,transform] duration-500 ${id === active ? "translate-y-[15px] opacity-100" : "translate-y-0 opacity-0"}`.trim()}

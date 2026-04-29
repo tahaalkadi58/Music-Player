@@ -27,7 +27,7 @@ export default function CardsText() {
           <li className="card-container" key={id} id={String(id)}>
             <Link href={href} className="block cursor-pointer">
               <div className="card relative flex h-[100px] w-[100px] items-center justify-center rounded-[15px] bg-[tomato] text-[40px] text-white after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-full after:rounded-[inherit] after:bg-black/0 after:transition-colors after:content-[''] hover:after:bg-black/30">
-                <i className={`fad fa-${icon} relative z-[1]`} />
+                <i className={`fas fa-${icon} relative z-[1]`} />
               </div>
               <div className="text py-1.5 text-white">{text}</div>
             </Link>
@@ -40,7 +40,7 @@ export default function CardsText() {
                 className="card relative flex h-[100px] w-[100px] items-center justify-center rounded-[15px] bg-[tomato] text-[40px] text-white after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-full after:rounded-[inherit] after:bg-black/20 after:transition-colors after:content-[''] hover:after:bg-black/40"
                 style={cover ? { backgroundImage: `url(${cover})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
               >
-                {!cover ? <i className="fad fa-music relative z-[1]" /> : null}
+                {!cover ? <i className="fas fa-music relative z-[1]" /> : null}
               </div>
               <div className="text truncate py-1.5 text-white">{text}</div>
             </Link>

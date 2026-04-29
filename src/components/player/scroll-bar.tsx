@@ -34,12 +34,12 @@ export default function ScrollBar() {
     <>
       <div className="scroll-bar z-[6] row-[6/7] flex items-center justify-center">
         <PlayerButton
-          icon="fad fa-list-music"
+          icon="fas fa-music"
           className="list-music mx-2.5 bg-transparent"
           onClick={() => setIsQueueOpen(true)}
         />
         <PlayerButton
-          icon="fad fa-step-backward"
+          icon="fas fa-step-backward"
           className="step-backward mx-2.5 bg-transparent"
           onClick={goToPreviousSong}
         />
@@ -57,7 +57,7 @@ export default function ScrollBar() {
           />
         )}
         <PlayerButton
-          icon="fad fa-step-forward"
+          icon="fas fa-step-forward"
           className="step-forward mx-2.5 bg-transparent"
           onClick={goToNextSong}
         />
