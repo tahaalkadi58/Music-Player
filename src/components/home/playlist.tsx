@@ -179,7 +179,7 @@ export default function Playlist({
 
   return (
     <section className="playlist px-6 text-white">
-      <div className="gap-2 mb-4 flex flex-wrap">
+      <div className="mb-4 flex flex-wrap gap-2">
         <div className="relative flex-grow">
           <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-white/70">
             <i className="fas fa-search" />
@@ -217,7 +217,7 @@ export default function Playlist({
           </button>
           {isSortOpen ? (
             <ul
-              className="absolute right-0 top-[calc(100%+6px)] z-30 min-w-[180px] rounded-xl border border-white/15 bg-[#1c2f4f] p-1 shadow-xl"
+              className="absolute left-0 top-[calc(100%+6px)] z-30 min-w-[180px] rounded-xl border border-white/15 bg-[#1c2f4f] p-1 shadow-xl"
               role="listbox"
               aria-label="Sort songs options"
             >
