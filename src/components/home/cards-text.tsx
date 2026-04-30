@@ -7,22 +7,24 @@ import { usePlayer } from "@/hooks/use-player";
 export default function CardsText() {
   const { customPlaylists, userSongs } = usePlayer();
 
-  const customPlaylistCards = Object.entries(customPlaylists).map(([name, songIds]) => {
-    const firstSong = songIds
-      .map((songId) => userSongs.find((song) => song.id === songId))
-      .find((song) => Boolean(song));
+  const customPlaylistCards = Object.entries(customPlaylists).map(
+    ([name, songIds]) => {
+      const firstSong = songIds
+        .map((songId) => userSongs.find((song) => song.id === songId))
+        .find((song) => Boolean(song));
 
-    return {
-      id: `custom-${name}`,
-      text: name,
-      href: `/playlists/${encodeURIComponent(name)}`,
-      cover: firstSong?.cover,
-    };
-  });
+      return {
+        id: `custom-${name}`,
+        text: name,
+        href: `/playlists/${encodeURIComponent(name)}`,
+        cover: firstSong?.cover,
+      };
+    },
+  );
 
   return (
-    <section className="cards-text px-6 py-5">
-      <ul className="grid list-none gap-x-5 [grid-template-columns:repeat(auto-fit,100px)] [grid-template-rows:1fr]">
+    <section className="cards-text py-5">
+      <ul className="flex max-w-full list-none flex-row gap-x-5 overflow-auto px-6 [grid-template-columns:repeat(auto-fit,100px)] [grid-template-rows:1fr] sm:grid">
         {cardsData.map(({ text, icon, id, href }) => (
           <li className="card-container" key={id} id={String(id)}>
             <Link href={href} className="block cursor-pointer">
@@ -38,7 +40,15 @@ export default function CardsText() {
             <Link href={href} className="block cursor-pointer">
               <div
                 className="card relative flex h-[100px] w-[100px] items-center justify-center rounded-[15px] bg-[tomato] text-[40px] text-white after:absolute after:left-0 after:top-0 after:z-0 after:h-full after:w-full after:rounded-[inherit] after:bg-black/20 after:transition-colors after:content-[''] hover:after:bg-black/40"
-                style={cover ? { backgroundImage: `url(${cover})`, backgroundSize: "cover", backgroundPosition: "center" } : undefined}
+                style={
+                  cover
+                    ? {
+                        backgroundImage: `url(${cover})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : undefined
+                }
               >
                 {!cover ? <i className="fas fa-music relative z-[1]" /> : null}
               </div>

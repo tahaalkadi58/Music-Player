@@ -179,8 +179,8 @@ export default function Playlist({
 
   return (
     <section className="playlist px-6 text-white">
-      <div className="mb-4 grid grid-cols-[1fr_auto_auto] items-center gap-2">
-        <div className="relative">
+      <div className="gap-2 mb-4 flex flex-wrap">
+        <div className="relative flex-grow">
           <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-white/70">
             <i className="fas fa-search" />
           </span>
@@ -203,15 +203,17 @@ export default function Playlist({
           <button
             type="button"
             onClick={() => setIsSortOpen((prev) => !prev)}
-            className="inline-flex min-w-[150px] items-center justify-between rounded-xl border border-white/20 bg-white/10 py-2 pl-10 pr-3 text-sm text-white outline-none hover:bg-white/20"
+            className="inline-flex items-center justify-between rounded-xl border border-white/20 bg-white/10 py-2 pl-10 pr-3 text-sm text-white outline-none hover:bg-white/20"
             aria-haspopup="listbox"
             aria-expanded={isSortOpen}
             aria-label="Sort songs"
           >
             <span>{selectedSortLabel}</span>
-            <i
-              className={`fas ${isSortOpen ? "fa-chevron-up" : "fa-chevron-down"} text-xs`}
-            />
+            <span className="px-2">
+              <i
+                className={`fas ${isSortOpen ? "fa-chevron-up" : "fa-chevron-down"} text-xs`}
+              />
+            </span>
           </button>
           {isSortOpen ? (
             <ul
@@ -256,7 +258,7 @@ export default function Playlist({
                   : "fas fa-arrow-down"
               }
             />
-            {sortDirection === "asc" ? "Asc" : "Desc"}
+            {/* {sortDirection === "asc" ? "Asc" : "Desc"} */}
           </span>
         </button>
       </div>
