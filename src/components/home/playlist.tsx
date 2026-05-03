@@ -262,22 +262,24 @@ export default function Playlist({
           </span>
         </button>
       </div>
-      <ul className="grid list-none gap-[15px] [grid-template-columns:1fr] [grid-template-rows:repeat(auto-fit,60px)]">
+      <ul className="grid list-none gap-[15px] [grid-template-columns:1fr] [grid-template-rows:repeat(auto-fit,auto-fit)]">
         {sortedEntries.length === 0 ? (
-          <li className="rounded-xl bg-white/5 p-4 text-sm text-white/70">
-            {isSearching
-              ? "No songs matched your search."
-              : mode === "favorites"
-                ? "No favorite songs yet."
-                : mode === "history"
-                  ? "No listening history yet."
-                  : "No songs loaded yet. Import local music to start playing."}
+          <li className="flex items-center">
+            <p className="w-full rounded-xl bg-white/5 p-4 text-justify text-sm text-white/70">
+              {isSearching
+                ? "No songs matched your search."
+                : mode === "favorites"
+                  ? "No favorite songs yet."
+                  : mode === "history"
+                    ? "No listening history yet."
+                    : "No songs loaded yet. Import local music to start playing."}
+            </p>
           </li>
         ) : null}
         {sortedEntries.map(({ song, index }, visibleIndex) => (
           <li
             id={`song-${song.id}`}
-            className={`playlist-song relative flex h-[60px] items-center justify-between rounded-xl px-2 py-1 ${currentSongIndex === index ? "bg-white/10" : ""}`.trim()}
+            className={`playlist-song relative flex h-[60px] w-full items-center justify-between rounded-xl px-2 py-1 ${currentSongIndex === index ? "bg-white/10" : ""}`.trim()}
             key={song.id}
             onClick={() => {
               setCurrentSongIndex(index);
@@ -288,7 +290,7 @@ export default function Playlist({
               }
             }}
           >
-            <PlayerButton className="song-number h-10 w-10 bg-white/30 text-xl font-bold">
+            <PlayerButton className="song-number h-10 w-10 flex-shrink-0 bg-white/30 text-xl font-bold">
               {currentSongIndex === index ? (
                 <i className={playing ? "fas fa-pause" : "fas fa-play"} />
               ) : (
@@ -297,23 +299,25 @@ export default function Playlist({
             </PlayerButton>
             <button
               type="button"
-              className="playlist-song-info grid flex-grow cursor-pointer appearance-none grid-cols-[min-content_max-content] grid-rows-[auto_auto] items-center justify-items-start gap-0 border-0 bg-transparent px-5 text-justify text-white outline-none"
+              className="playlist-song-info grid flex-grow cursor-pointer grid-cols-[1fr_auto] grid-rows-[auto_auto] items-center gap-1 overflow-hidden bg-transparent px-5 text-left text-white"
             >
-              <span className="playlist-song-title col-[1/3] row-[1/2] text-base font-bold">
+              <span className="playlist-song-title col-span-2 truncate text-base font-bold">
                 {song.title}
               </span>
-              {song.artist ? (
-                <span className="playlist-song-artist whitespace-nowrap text-sm text-white/75">
+
+              {song.artist && (
+                <span className="playlist-song-artist truncate text-sm text-white/75">
                   {song.artist}
                 </span>
-              ) : null}
-              <span className="playlist-song-duration ml-2.5 text-sm text-white/75">
+              )}
+
+              <span className="playlist-song-duration justify-self-end text-sm text-white/75">
                 {song.duration}
               </span>
             </button>
             <PlayerButton
-              className="playlist-song-delete bg-transparent px-5 text-[25px]"
-              icon="fal fa-ellipsis-v"
+              className="playlist-song-delete flex-shrink-0 bg-transparent px-5 text-[25px]"
+              icon="fas fa-ellipsis-v"
               onClick={(e) => {
                 e.stopPropagation();
                 setOpenMenuSongId((prev) =>

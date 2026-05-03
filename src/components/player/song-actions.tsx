@@ -45,7 +45,7 @@ export default function SongActions() {
     <>
       <div className="song-react z-[6] flex items-center justify-center">
         <PlayerButton
-          icon={favorite ? "fas fa-heart" : "fal fa-heart"}
+          icon={favorite ? "fas fa-heart" : "fas fa-heart"}
           className={`mx-[15px] bg-transparent ${favorite ? "text-rose-300" : ""}`.trim()}
           onClick={() => {
             if (!currentSong) return;
@@ -55,7 +55,7 @@ export default function SongActions() {
           }}
         />
         <PlayerButton
-          icon="fal fa-plus"
+          icon="fas fa-plus"
           className="mx-[15px] bg-transparent"
           onClick={() => {
             setFeedback("");
